@@ -18,16 +18,12 @@
 |
 */
 
-import Route from '@ioc:Adonis/Core/Route'
+import Route from "@ioc:Adonis/Core/Route";
 
-Route.get('/', async (ctx ) => {
-  ctx.test = "testing"
-  return ctx.view.render('welcome')
-})
-Route.on('/register').render('auth/signup')
+import "./routes/auth";
+import "./routes/posts";
 
-Route.on('/login').render('auth/login');
-
-Route.post('/register', async (req) => {
-  return req
-})
+Route.get("/", async (ctx) => {
+  ctx.test = "testing";
+  return ctx.view.render("welcome");
+});
