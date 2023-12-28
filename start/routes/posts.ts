@@ -1,7 +1,15 @@
-import Route from '@ioc:Adonis/Core/Route'
+import Route from "@ioc:Adonis/Core/Route";
 
 // Posts Routes
-Route.post('/posts', async () => {})
-Route.get('/posts', async () => {})
-Route.delete('/posts/1', async () => {})
-Route.patch('/posts', async () => {})
+Route.group(() => {
+  Route.get("/", async () => {
+    return "A list of posts";
+  });
+  Route.get("/:id", async () => {
+    return "A single post"
+  });
+  Route.delete("/1", async () => {
+    return "Delete a single post";
+  });
+  Route.patch("/", async () => {});
+}).prefix('/posts')
